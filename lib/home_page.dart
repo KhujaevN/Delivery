@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -6,6 +8,8 @@ class Home_page extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
+          padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.28),
           color: Color(0xFF181A20),
           constraints: BoxConstraints(
             minHeight: MediaQuery.of(context).size.height,
@@ -14,8 +18,6 @@ class Home_page extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                padding: EdgeInsets.symmetric(
-                    horizontal: MediaQuery.of(context).size.width * 0.28),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -43,7 +45,7 @@ class Home_page extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const SizedBox(width: 16),
+                    const SizedBox(width: 30),
                     Expanded(
                       child: Container(
                         child: Column(
@@ -61,7 +63,7 @@ class Home_page extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 7),
+                            const SizedBox(height: 1),
                             Container(
                               width: double.infinity,
                               child: Row(
@@ -72,7 +74,7 @@ class Home_page extends StatelessWidget {
                                   const Text(
                                     'Амир Темур, 107Б',
                                     style: TextStyle(
-                                      color: Colors.white,
+                                      color: Colors.green,
                                       fontSize: 20,
                                     ),
                                   ),
@@ -114,28 +116,37 @@ class Home_page extends StatelessWidget {
                   ],
                 ),
               ),
-              // Padding(
-              //   padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.28),
-              //   child: Container(
-              //     margin: EdgeInsets.only(top: 20.0), // Adjust margin as needed
-              //     decoration: BoxDecoration(
-              //       color: Colors.grey[200],
-              //       borderRadius: BorderRadius.circular(10.0),
-              //     ),
-              //     child: const TextField(
-              //       decoration: InputDecoration(
-              //         prefixIcon: Icon(Icons.search),
-              //         hintText: 'Search...',
-              //         border: InputBorder.none,
-              //         contentPadding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
-              //       ),
-              //     ),
-              //   ),
-              // ),
+              const SizedBox(height: 13),
+              Container(
+                width: 380,
+                height: 50,
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                decoration: ShapeDecoration(
+                  color: Color(0xFFF5F5F5),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                ),
+                child: const Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            fillColor: Color(0xFFBDBDBD),
+                            hintText: 'Search',
+                            prefixIcon: Icon(Icons.search)),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               SizedBox(height: 30.0),
               Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: MediaQuery.of(context).size.width * 0.28),
+                padding: EdgeInsets.symmetric(),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -154,11 +165,11 @@ class Home_page extends StatelessWidget {
                           height: 200.0,
                           aspectRatio: 16 / 9,
                           viewportFraction: 0.5,
-                          initialPage: 0,
+                          initialPage: 1,
                           enableInfiniteScroll: false,
                           reverse: false,
                           autoPlay: true,
-                          autoPlayInterval: Duration(seconds: 310),
+                          autoPlayInterval: Duration(seconds: 10),
                           autoPlayAnimationDuration:
                               Duration(milliseconds: 800),
                           autoPlayCurve: Curves.fastOutSlowIn,
@@ -193,6 +204,115 @@ class Home_page extends StatelessWidget {
                   ],
                 ),
               ),
+              SizedBox(height: 20),
+              Text('Menu',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  )),
+              SizedBox(height: 20),
+              const Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: SizedBox(
+                      child: ListTile(
+                        leading: ClipRRect(
+                          borderRadius: BorderRadius.all(Radius.circular(16.0)),
+                          child: Image(
+                            image: AssetImage(
+                                '../images/popular_carousel_img.png'),
+                            width: 100,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        title: Text(
+                          'Plov',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        subtitle: Row(
+                          children: [
+                            Icon(Icons.directions_car,
+                                color: Color(0xFF1BAC4B)),
+                            SizedBox(width: 5),
+                            Text(
+                              '40 min',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )
+                          ],
+                        ),
+                        trailing: Text(
+                          '35000 Sum',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF1BAC4B)),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 10),
+              const Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: SizedBox(
+                      child: ListTile(
+                        leading: ClipRRect(
+                          borderRadius: BorderRadius.all(Radius.circular(16.0)),
+                          child: Image(
+                            image: AssetImage(
+                                '../images/salad.png'),
+                            width: 100,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        title: Text(
+                          'Salad',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        subtitle: Row(
+                          children: [
+                            Icon(Icons.directions_car,
+                                color: Color(0xFF1BAC4B)),
+                            SizedBox(width: 5),
+                            Text(
+                              '20 min',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )
+                          ],
+                        ),
+                        trailing: Text(
+                          '18000 Sum',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF1BAC4B)),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            
+            
             ],
           )),
     );
