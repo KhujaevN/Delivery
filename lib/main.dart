@@ -1,3 +1,4 @@
+import 'package:delivery_app_pro/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Profile Page',
+      title: 'Delivery',
       theme: ThemeData.dark(),
       initialRoute: '/',
       routes: {
