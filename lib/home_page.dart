@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'info_page.dart';
 
 class Home_page extends StatelessWidget {
   @override
@@ -258,57 +259,60 @@ class Home_page extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 10),
-              const Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: SizedBox(
-                      child: ListTile(
-                        leading: ClipRRect(
-                          borderRadius: BorderRadius.all(Radius.circular(16.0)),
-                          child: Image(
-                            image: AssetImage(
-                                'assets/salad.png'),
-                            width: 100,
-                            fit: BoxFit.cover,
+              GestureDetector(  onTap:(){Navigator.pushNamed(context, '/food_info');},
+                child:  const Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: SizedBox(
+                        child: ListTile(
+
+                          leading: ClipRRect(
+                            borderRadius: BorderRadius.all(Radius.circular(16.0)),
+                            child: Image(
+                              image: AssetImage(
+                                  'assets/salad.png'),
+                              width: 100,
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                        ),
-                        title: Text(
-                          'Salad',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        subtitle: Row(
-                          children: [
-                            Icon(Icons.directions_car,
-                                color: Color(0xFF1BAC4B)),
-                            SizedBox(width: 5),
-                            Text(
-                              '20 min',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            )
-                          ],
-                        ),
-                        trailing: Text(
-                          '18000 Sum',
-                          style: TextStyle(
+                          title: Text(
+                            'Salad',
+                            style: TextStyle(
+                              color: Colors.white,
                               fontWeight: FontWeight.bold,
-                              color: Color(0xFF1BAC4B)),
+                            ),
+                          ),
+                          subtitle: Row(
+                            children: [
+                              Icon(Icons.directions_car,
+                                  color: Color(0xFF1BAC4B)),
+                              SizedBox(width: 5),
+                              Text(
+                                '20 min',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              )
+                            ],
+                          ),
+                          trailing: Text(
+                            '18000 Sum',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFF1BAC4B)),
+                          ),
+
                         ),
                       ),
                     ),
-                  ),
-                ],
-              )
-            
-            
+                  ],
+
+                )
+              ),
             ],
           )),
     );

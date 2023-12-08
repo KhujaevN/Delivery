@@ -2,15 +2,19 @@ import 'package:delivery_app_pro/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'food_info.dart';
+import 'info_page.dart';
 import 'profile/profile_page.dart';
 import 'profile/Profile_edit.dart';
 import 'profile/Profile.dart';
-import 'home_page.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => User_profile(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => User_profile()),
+        ChangeNotifierProvider(create: (context) => CounterModel()),
+      ],
       child: MyApp(),
     ),
   );
@@ -22,12 +26,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Delivery',
       theme: ThemeData.dark(),
-      initialRoute: '/',
+      initialRoute: '/home',
       routes: {
-        '/': (context) => Scaffold(body: Home_page()),
-        '/profile':(context) => Profile_page(),
+        '/profile': (context) => Profile_page(),
         '/edit': (context) => Profile_edit(),
-        '/home': (context) => Scaffold(body: Home_page()),
+        '/home': (context) =>  Scaffold(body:Home_page()),
+        '/food_info': (context) => info_page(),
       },
     );
   }
