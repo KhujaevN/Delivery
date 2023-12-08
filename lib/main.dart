@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'profile/profile_page.dart';
 import 'profile/Profile_edit.dart';
 import 'profile/Profile.dart';
+import 'home_page.dart';
 
 void main() {
   runApp(
@@ -23,8 +24,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark(),
       initialRoute: '/',
       routes: {
-        '/': (context) => Profile_page(),
+        '/': (context) => Scaffold(body: Home_page()),
+        '/profile':(context) => Profile_page(),
         '/edit': (context) => Profile_edit(),
+        '/home': (context) => Scaffold(body: Home_page()),
       },
     );
   }

@@ -4,7 +4,7 @@ import 'Profile.dart';
 
 class Profile_edit extends StatelessWidget {
   final TextEditingController nameController = TextEditingController();
-  final TextEditingController roleController = TextEditingController();
+  final TextEditingController dobController = TextEditingController();
   final TextEditingController locationController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
@@ -14,7 +14,7 @@ class Profile_edit extends StatelessWidget {
     var userProfile = Provider.of<User_profile>(context);
 
     nameController.text = userProfile.name;
-    roleController.text = userProfile.role;
+    dobController.text = userProfile.date_of_birth;
     locationController.text = userProfile.location;
     emailController.text = userProfile.email;
     phoneController.text = userProfile.phone;
@@ -34,8 +34,8 @@ class Profile_edit extends StatelessWidget {
                 decoration: InputDecoration(labelText: 'Name'),
               ),
               TextFormField(
-                controller: roleController,
-                decoration: InputDecoration(labelText: 'Role'),
+                controller: dobController,
+                decoration: InputDecoration(labelText: 'Date of birth'),
               ),
               TextFormField(
                 controller: locationController,
@@ -55,7 +55,7 @@ class Profile_edit extends StatelessWidget {
                   // Update the profile information
                   userProfile.updateProfile(
                     newName: nameController.text,
-                    newRole: roleController.text,
+                    newDOB: dobController.text,
                     newLocation: locationController.text,
                     newEmail: emailController.text,
                     newPhone: phoneController.text,

@@ -37,7 +37,7 @@ class Profile_page extends StatelessWidget {
             ),
             SizedBox(height: 8),
             Text(
-              userProfile.role,
+              userProfile.date_of_birth,
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.grey,

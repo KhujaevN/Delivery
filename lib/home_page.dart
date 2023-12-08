@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -8,8 +7,7 @@ class Home_page extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-          padding: EdgeInsets.symmetric(
-              horizontal: MediaQuery.of(context).size.width * 0.28),
+          padding: EdgeInsets.all(40.10),
           color: Color(0xFF181A20),
           constraints: BoxConstraints(
             minHeight: MediaQuery.of(context).size.height,
@@ -24,24 +22,22 @@ class Home_page extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      width: 48,
-                      height: 48,
+                      width: 100,
+                      height: 40,
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Container(
-                            width: 48,
-                            height: 48,
-                            decoration: const ShapeDecoration(
-                              image: DecorationImage(
-                                image: AssetImage('../images/profile-logo.png'),
-                                fit: BoxFit.fill,
-                              ),
-                              shape: OvalBorder(),
-                            ),
-                          ),
+                            ElevatedButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/profile');
+                                },
+                                child: const CircleAvatar(
+                                  backgroundImage:
+                                  AssetImage('assets/profile-logo.png'),
+                                )),
+
                         ],
                       ),
                     ),
@@ -164,7 +160,7 @@ class Home_page extends StatelessWidget {
                         options: CarouselOptions(
                           height: 200.0,
                           aspectRatio: 16 / 9,
-                          viewportFraction: 0.5,
+                          viewportFraction: 0.8,
                           initialPage: 1,
                           enableInfiniteScroll: false,
                           reverse: false,
@@ -180,21 +176,21 @@ class Home_page extends StatelessWidget {
                           Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Image.asset(
-                              '../images/popular_carousel_img.png',
+                              'assets/popular_carousel_img.png',
                               fit: BoxFit.cover,
                             ),
                           ),
                           Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Image.asset(
-                              '../images/popular_carousel_img.png',
+                              'assets/popular_carousel_img.png',
                               fit: BoxFit.cover,
                             ),
                           ),
                           Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Image.asset(
-                              '../images/popular_carousel_img.png',
+                              'assets/popular_carousel_img.png',
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -224,7 +220,7 @@ class Home_page extends StatelessWidget {
                           borderRadius: BorderRadius.all(Radius.circular(16.0)),
                           child: Image(
                             image: AssetImage(
-                                '../images/popular_carousel_img.png'),
+                                'assets/popular_carousel_img.png'),
                             width: 100,
                             fit: BoxFit.cover,
                           ),
@@ -274,7 +270,7 @@ class Home_page extends StatelessWidget {
                           borderRadius: BorderRadius.all(Radius.circular(16.0)),
                           child: Image(
                             image: AssetImage(
-                                '../images/salad.png'),
+                                'assets/salad.png'),
                             width: 100,
                             fit: BoxFit.cover,
                           ),
