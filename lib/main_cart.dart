@@ -36,7 +36,6 @@ class HomeScreen extends StatelessWidget {
   }
 
   void navigateToMyCart(BuildContext context) {
-    // Assume you have a list of ordered meals
     List<Meal> orderedMeals = [
       Meal(
           name: 'Salad',
@@ -47,7 +46,6 @@ class HomeScreen extends StatelessWidget {
           price: 20.99,
           imageAssetPath: 'assets/images/palov.jpg'),
 
-      // Add more meals as needed
     ];
 
     Navigator.push(
